@@ -1,3 +1,4 @@
+
 let empPayrollList
 window.addEventListener("DOMContentLoaded", (event) => {
     empPayrollList = getEmployeeDataFromStorage()
