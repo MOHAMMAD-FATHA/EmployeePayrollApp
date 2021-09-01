@@ -13,7 +13,6 @@ class EmployeePayrollData
     {
         return this._name;
     }
-
     set name(name)
     {
         let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
@@ -40,7 +39,6 @@ class EmployeePayrollData
     {
         return this._gender;
     }
-
     set gender(gender)
     {
         this._gender = gender;
@@ -50,7 +48,6 @@ class EmployeePayrollData
     {
         return this._department;
     }
-
     set department(department)
     {
         this._department = department;
@@ -60,7 +57,6 @@ class EmployeePayrollData
     {
         return this._salary;
     }
-
     set salary(salary)
     {
         this._salary = salary;
@@ -81,6 +77,17 @@ class EmployeePayrollData
     }
     set startDate(startDate)
     {
+        let now = new Date();
+        let date = new Date(startDate);
+        if (date > now)
+        {
+            throw 'Future date not allowed';
+        }
+        var diff = Math.abs(now.getTime() - date.getTime());
+        if (diff / (1000*60*60*24) > 30 )
+        {
+            throw "Date cannot be past 30 days";
+        }
         this._startDate = new Date(startDate);
     }
       
